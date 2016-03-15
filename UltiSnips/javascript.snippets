@@ -85,20 +85,16 @@ propTypes: {
 endsnippet
 
 snippet rcc "create class/component" b
-${1:/**
-* @jsx React.DOM
-*/
-
+${1:
 var React = require('React');
 }
 var ${2:ClassName} = React.createClass({
 
-render: function() {
-	return (
-		${VISUAL}$4
-	);
-}
-
+	render: function() {
+		return (
+			${VISUAL}$4
+		)
+	}
 });
 $0
 ${3:module.exports = $2;}
@@ -124,11 +120,11 @@ shouldComponentUpdate: function(nextProps, nextState) {
 },$0
 endsnippet
 
-snippet props "get property" i
+snippet prp "get property" i
 this.props.${1}
 endsnippet
 
-snippet state "get state" i
+snippet st "get state" i
 this.state.${1}
 endsnippet
 
