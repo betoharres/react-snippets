@@ -53,18 +53,14 @@ snippet pt
 		${1}: React.PropTypes.${2:string}
 	}
 snippet rcc
-	/**
-	 * @jsx React.DOM
-	 */
-
-	var React = require('React');
+	var React = require('react');
 
 	class _${1:ClassName} {
 
 		render() {
 			return (
 				${0:<div />}
-			);
+			)
 		}
 	};
 
@@ -75,7 +71,7 @@ snippet cc
 		render() {
 			return (
 				${0:<div />}
-			);
+			)
 		}
 	};
 
@@ -94,9 +90,9 @@ snippet scu
 	shouldComponentUpdate(nextProps, nextState) {
 		${1}
 	}
-snippet props
+snippet prp
 	this.props.${1}
-snippet state
+snippet st
 	this.state.${1}
 snippet trp
 	transferPropsTo(${1});
