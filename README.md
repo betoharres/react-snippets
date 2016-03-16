@@ -1,6 +1,3 @@
-**Note: I've ported `/snippets` to es6 class usage.  I've not touched `/UtiliSnips`.** 
-
-
 vim-react-es6-snippets
 ==================
 
