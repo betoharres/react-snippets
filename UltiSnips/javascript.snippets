@@ -56,7 +56,7 @@ snippet gdp "get default props" b
 getDefaultProps: function() {
 	return {
 		${1}
-	};
+	}
 },$0
 endsnippet
 
@@ -64,7 +64,7 @@ snippet gis "get initial state" b
 getInitialState: function() {
 	return {
 		${1}: ${2}
-	};
+	}
 },$0
 endsnippet
 
@@ -102,14 +102,14 @@ snippet ren
 render: function() {
 	return (
 		${1:<div />}
-	);
+	)
 }$0
 endsnippet
 
 snippet tss "set state" b
 this.setState({
 	${1}: ${2}
-});$0
+})$0
 endsnippet
 
 snippet scu "should component update"
