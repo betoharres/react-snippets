@@ -89,19 +89,19 @@ export default $2
 endsnippet
 
 snippet rcsc "create stateless component" b
-${2:import React, {PropTypes} from 'react'}
-function ${3:ClassName} {
+${3:import React, {PropTypes} from 'react'}
+function ${4:ClassName} {
 
 	return (
-		${VISUAL}$3
+		${VISUAL}$5
 	)
 }
 
 $4.propTypes = {
-	$0: PropTypes.$1.isRequired;
+	$1: PropTypes.$2.isRequired;
 }
 
-export default $3
+export default $4
 endsnippet
 
 snippet render
