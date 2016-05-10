@@ -2,50 +2,40 @@
 #  React snippets
 #
 
-snippet cs "React.addons.classSet" b
-var cx = React.addons.classSet;
-endsnippet
-
 snippet cdm "component did mount" b
-componentDidMount: function() {
+componentDidMount () {
 	${1}
 },$0
 endsnippet
 
-snippet cdup "component did update" b
-componentDidUpdate: function(prevProps, prevState) {
+snippet cdu "component did update" b
+componentDidUpdate (prevProps, prevState) {
 	${1}
 },$0
 endsnippet
 
 snippet cwm "component will mount" b
-componentWillMount: function() {
+componentWillMount () {
 	${1}
 },$0
 endsnippet
 
 snippet cwr "component will receive props" b
-componentWillReceiveProps: function(nextProps) {
+componentWillReceiveProps (nextProps) {
 	${1}
 },$0
 endsnippet
 
 snippet cwun "component will unmount" b
-componentWillUnmount: function() {
+componentWillUnmount () {
 	${1}
 },$0
 endsnippet
 
-snippet cwu "component will update" b
-componentWillUpdate: function(nextProps, nextState) {
+snippet cwup "component will update" b
+componentWillUpdate (nextProps, nextState) {
 	${1}
 },$0
-endsnippet
-
-snippet cx
-cx({
-	${1}: ${2}
-});
 endsnippet
 
 snippet fup
@@ -53,7 +43,7 @@ forceUpdate(${1:callback});
 endsnippet
 
 snippet gdp "get default props" b
-getDefaultProps: function() {
+getDefaultProps () {
 	return {
 		${1}
 	}
@@ -61,7 +51,7 @@ getDefaultProps: function() {
 endsnippet
 
 snippet gis "get initial state" b
-getInitialState: function() {
+getInitialState () {
 	return {
 		${1}: ${2}
 	}
@@ -85,23 +75,39 @@ propTypes: {
 endsnippet
 
 snippet rcc "create class/component" b
-${1:var React = require('react');}
-var ${2:ClassName} = React.createClass({
+${1:import React, {Component} from 'react'}
+class ${2:ClassName} extends Component {
 
-	render: function() {
+	render () {
 		return (
 			${VISUAL}$3
 		)
 	}
 });
 $0
-module.exports = $2;
+export default $2;
 endsnippet
 
-snippet ren
-render: function() {
+snippet rsc "create stateless component" b
+${2:import React, {PropTypes} from 'react'}
+function ${3:ClassName} {
+
 	return (
-		${1:<div />}
+		${VISUAL}$3
+	)
+}
+
+$4.propTypes = {
+	$0: PropTypes.$1.isRequired;
+}
+
+export default $3;
+endsnippet
+
+snippet render
+render () {
+	return (
+		${1:<div></div>}
 	)
 }$0
 endsnippet
@@ -113,7 +119,7 @@ this.setState({
 endsnippet
 
 snippet scu "should component update"
-shouldComponentUpdate: function(nextProps, nextState) {
+shouldComponentUpdate (nextProps, nextState) {
 	${1}
 },$0
 endsnippet
