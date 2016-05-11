@@ -82,8 +82,8 @@ snippet jsx "define jsx dom" b
 endsnippet
 
 snippet pt "propTypes" b
-propTypes: {
-	${1}: React.PropTypes.${2:string}
+${1}.propTypes: {
+	${2}: PropTypes.${3:string}.isRequired,
 }
 endsnippet
 
@@ -103,18 +103,12 @@ endsnippet
 
 snippet rcsc "create stateless component" b
 ${2:import React, {PropTypes} from 'react'}
-function ${1:ClassName} {
+export default function (props) ${1:ClassName} {
 
 	return (
 		${3:<div>{'NewStatelessComponent'}</div>}
 	)
 }
-
-$1.propTypes = {
-	$4: PropTypes.$5.isRequired,
-}
-
-export default $1
 endsnippet
 
 snippet render
