@@ -82,7 +82,7 @@ snippet jsx "define jsx dom" b
 endsnippet
 
 snippet pt "propTypes" b
-${1}.propTypes: {
+${1}.propTypes = {
 	${2}: PropTypes.${3:string}.isRequired,
 }
 endsnippet
@@ -108,6 +108,7 @@ export default function ${1:ClassName} (props) {
 	return (
 		${3:<div>{'NewStatelessComponent'}</div>}
 	)
+
 }
 endsnippet
 
