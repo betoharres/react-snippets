@@ -102,11 +102,11 @@ export default $2
 endsnippet
 
 snippet rcsc "create stateless component" b
-${2:import React, {PropTypes} from 'react'}
-export default function ${1:ClassName} (props) {
+${3:import React, {PropTypes} from 'react'}
+export default function ${1:ClassName} (${2:props}) {
 
 	return (
-		${3:<div>{'NewStatelessComponent'}</div>}
+		${4:<div>{'NewStatelessComponent'}</div>}
 	)
 
 }
