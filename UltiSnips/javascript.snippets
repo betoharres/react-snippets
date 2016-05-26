@@ -6,6 +6,10 @@ snippet im "import" b
 import $1 from '${2}'
 endsnippet
 
+snippet imm "import with brackets" b
+import { $1 } from '${2}'
+endsnippet
+
 snippet constructor "React constructor" b
 constructor () {
 	super()
@@ -56,7 +60,7 @@ forceUpdate(${1:callback})
 endsnippet
 
 snippet gdp "get default props" b
-getDefaultProps () {
+defaultProps () {
 	return {
 		${1}
 	}
