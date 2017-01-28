@@ -10,6 +10,26 @@ snippet imm "import with brackets" b
 import { $1 } from '${2}'
 endsnippet
 
+snippet exp "export component" b
+export ${1} from '$1/$1$0'
+endsnippet
+
+snippet fun "create function" b
+function ${1} (${2}) {
+	${3}
+}
+endsnippet
+
+snippet () "annon function" b
+() => ${1:{}}
+endsnippet
+
+snippet if "if statement"
+if (${1}){
+	${2}
+}
+endsnippet
+
 snippet constructor "React constructor" b
 constructor () {
 	super()
@@ -37,7 +57,7 @@ componentWillMount () {
 }$0
 endsnippet
 
-snippet cwr "component will receive props" b
+snippet cwrp "component will receive props" b
 componentWillReceiveProps (nextProps) {
 	${1}
 }$0
@@ -55,11 +75,7 @@ componentWillUpdate (nextProps, nextState) {
 }$0
 endsnippet
 
-snippet fup
-forceUpdate(${1:callback})
-endsnippet
-
-snippet gdp "get default props" b
+snippet dp "default props" b
 defaultProps () {
 	return {
 		${1}
@@ -77,12 +93,6 @@ endsnippet
 
 snippet ism "is mounted"
 isMounted()
-endsnippet
-
-snippet jsx "define jsx dom" b
-/**
- * @jsx React.DOM
- */
 endsnippet
 
 snippet pt "propTypes" b
@@ -106,6 +116,24 @@ $0
 export default $2
 endsnippet
 
+snippet rncc "create native class/component" b
+import React, { PropTypes, Component } from 'react'
+import { ${3:View, Text} } from 'react-native'
+
+class ${1:ClassName} extends Component {
+
+	render () {
+		return (
+			<View>
+				<Text>${2}</Text>
+			</View>
+		)
+	}
+}
+$0
+export default ${1}
+endsnippet
+
 snippet rcsc "create stateless component" b
 ${3:import React, {PropTypes} from 'react'}
 
@@ -117,6 +145,33 @@ export default function ${1:ClassName} (${2:props}) {
 
 }
 endsnippet
+
+snippet rncsc "create native stateless component" b
+import React, { PropTypes } from 'react'
+import { Text, View, ${3:StyleSheet} } from 'react-native'
+
+export default function ${1:ClassName} (props) {
+
+	return (
+		<View>
+			<Text>${2}</Text>
+		</View>
+	)
+
+}
+
+${3:const styles = StyleSheet.create({
+})}
+endsnippet
+
+snippet cs "create StyleSheet" b
+const styles = StyleSheet.create({
+	${1}: {
+		${2}: ${3},
+	},
+})
+endsnippet
+
 
 snippet render
 render () {
@@ -132,7 +187,7 @@ this.setState({
 })$0
 endsnippet
 
-snippet scu "should component update"
+snippet scu "should component update" i
 shouldComponentUpdate (nextProps, nextState) {
 	${1}
 }$0
@@ -148,4 +203,33 @@ endsnippet
 
 snippet trp
 this.transferPropsTo(${VISUAL}$0)
+endsnippet
+
+snippet cl "log console" i
+console.log('${1}')
+endsnippet
+
+snippet ra "redux action" i
+const ${1} = $1
+endsnippet
+
+snippet rr "redux reducer" i
+const initialState = {}
+
+export default function ${1} (state = initialState, action) {
+	switch (action.type) {
+
+		default :
+			return state
+	}
+}
+endsnippet
+
+snippet rac "redux action creator" i
+export const $3 = $3
+export function ${1} (${2}) {
+	return {
+		type: ${3},$0
+	}
+}
 endsnippet
