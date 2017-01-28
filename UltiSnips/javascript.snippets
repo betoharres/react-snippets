@@ -118,10 +118,10 @@ endsnippet
 
 snippet rncc "create native class/component" b
 import React, { PropTypes, Component } from 'react'
-import { ${3:View, Text} } from 'react-native'
+import { ${3:View, Text}${4} } from 'react-native'
 
 class ${1:ClassName} extends Component {
-
+$0
 	render () {
 		return (
 			<View>
@@ -130,7 +130,7 @@ class ${1:ClassName} extends Component {
 		)
 	}
 }
-$0
+
 export default $1
 endsnippet
 
