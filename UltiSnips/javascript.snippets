@@ -226,7 +226,15 @@ export default function ${1} (state = initialState, action) {
 endsnippet
 
 snippet rac "redux action creator" i
-export const $3 = $3
+export const $3 = '$3'
+export function ${1} (${2}) {
+	return {
+		type: ${3},$0
+	}
+}
+endsnippet
+
+snippet racs "redux action creator simple" i
 export function ${1} (${2}) {
 	return {
 		type: ${3},$0
