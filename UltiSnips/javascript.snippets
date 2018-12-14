@@ -5,15 +5,13 @@ snippet rrcc "React Redux Class Component" b
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as ${2}ActionCreators from '../../redux/modules/$2'
 
 class ${1:`!v expand('%:t:r')`} extends Component {
 	static propTypes = {
 	children: PropTypes.node,
 		dispatch: PropTypes.func.isRequired,
-	}
-
-	constructor(props) {
-		super(props)
 	}
 
 	render() {
@@ -23,11 +21,15 @@ class ${1:`!v expand('%:t:r')`} extends Component {
 	}
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
 	return {}
 }
 
-export default connect(mapStateToProps)($1)
+function mapDispatchToProps (dispatch) {
+	return bindActionCreators($2ActionCreators, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)($1)
 endsnippet
 
 snippet rcc "create class/component" b
