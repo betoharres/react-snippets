@@ -31,25 +31,25 @@ export default connect(mapStateToProps)($1)
 endsnippet
 
 snippet rcc "create class/component" b
-${1:import React, { Component } from 'react'}
+import React, { Component } from 'react'
 
-class ${2:ClassName} extends Component {
+class ${1:`!v expand('%:t:r')`} extends Component {
 
 	render () {
 		return (
-			${3:null}
+			${2:null}
 		)
 	}
 }
 $0
-export default $2
+export default $1
 endsnippet
 
 snippet rncc "create native class/component" b
 import React, { Component } from 'react'
-import { ${3:View }${4} } from 'react-native'
+import { View, ${4} } from 'react-native'
 
-class ${1:ClassName} extends Component {
+class ${1:`!v expand('%:t:r')`} extends Component {
 $0
 	render () {
 		return (
@@ -63,12 +63,12 @@ export default $1
 endsnippet
 
 snippet rcsc "create stateless component" b
-${3:import React from 'react'}
-
-export default function ${1:ClassName} (${2:props}) {
+import React from 'react'
+$4
+export default function ${1:`!v expand('%:t:r')`} (${2:props}) {
 
 	return (
-		${4}
+		${3}
 	)
 
 }
@@ -76,9 +76,9 @@ endsnippet
 
 snippet rncsc "create native stateless component" b
 import React from 'react'
-import { Text, View, ${3:StyleSheet} } from 'react-native'
+import { View, Text, ${3:StyleSheet} } from 'react-native'
 
-export default function ${1:ClassName} (props) {
+export default function ${1:`!v expand('%:t:r')`} (props) {
 
 	return (
 		<View>
