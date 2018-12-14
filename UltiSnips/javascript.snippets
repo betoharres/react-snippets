@@ -1,6 +1,96 @@
 #
 #  React snippets
 #
+snippet rrcc "React Redux Class Component" b
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+
+class ${1:`!v expand('%:t:r')`} extends Component {
+	static propTypes = {
+	children: PropTypes.node,
+		dispatch: PropTypes.func.isRequired,
+	};
+
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			${3:null}
+		);
+	}
+}
+
+function mapStateToProps(state) {
+	return {};
+}
+
+export default connect(mapStateToProps)($1);
+endsnippet
+
+snippet rcc "create class/component" b
+${1:import React, { Component } from 'react'}
+
+class ${2:ClassName} extends Component {
+
+	render () {
+		return (
+			${3:null}
+		)
+	}
+}
+$0
+export default $2
+endsnippet
+
+snippet rncc "create native class/component" b
+import React, { Component } from 'react'
+import { ${3:View }${4} } from 'react-native'
+
+class ${1:ClassName} extends Component {
+$0
+	render () {
+		return (
+			<View>
+			</View>
+		)
+	}
+}
+
+export default $1
+endsnippet
+
+snippet rcsc "create stateless component" b
+${3:import React from 'react'}
+
+export default function ${1:ClassName} (${2:props}) {
+
+	return (
+		${4}
+	)
+
+}
+endsnippet
+
+snippet rncsc "create native stateless component" b
+import React from 'react'
+import { Text, View, ${3:StyleSheet} } from 'react-native'
+
+export default function ${1:ClassName} (props) {
+
+	return (
+		<View>
+			<Text>${2}</Text>
+		</View>
+	)
+
+}
+
+${3:const styles = StyleSheet.create({
+})}
+endsnippet
 
 snippet im "import" b
 import $1 from '${2}'
@@ -20,6 +110,12 @@ function ${1} (${2}) {
 }
 endsnippet
 
+snippet efun "create function" b
+export default function ${1} (${2}) {
+	${3}
+}
+endsnippet
+
 snippet () "annon function" b
 () => ${1:{}}
 endsnippet
@@ -34,7 +130,7 @@ snippet constructor "React constructor" b
 constructor () {
 	super()
 	this.state = {
-		${1}: ${2:''},
+		${1}: ${2},
 	}
 }$0
 endsnippet
@@ -51,12 +147,6 @@ componentDidUpdate (prevProps, prevState) {
 },$0
 endsnippet
 
-snippet cwm "component will mount" b
-componentWillMount () {
-	${1}
-}$0
-endsnippet
-
 snippet cwrp "component will receive props" b
 componentWillReceiveProps (nextProps) {
 	${1}
@@ -71,6 +161,12 @@ endsnippet
 
 snippet cwup "component will update" b
 componentWillUpdate (nextProps, nextState) {
+	${1}
+}$0
+endsnippet
+
+snippet scu "should component update" i
+shouldComponentUpdate (nextProps, nextState) {
 	${1}
 }$0
 endsnippet
@@ -101,67 +197,10 @@ ${1}.propTypes = {
 }
 endsnippet
 
-snippet rcc "create class/component" b
-${1:import React, { Component } from 'react'}
-
-class ${2:ClassName} extends Component {
-
-	render () {
-		return (
-			${3:<div></div>}
-		)
-	}
+snippet pt "propTypes" b
+static propTypes = {
+	${1}: PropTypes.${2:string}.isRequired,
 }
-$0
-export default $2
-endsnippet
-
-snippet rncc "create native class/component" b
-import React, { PropTypes, Component } from 'react'
-import { ${3:View, Text}${4} } from 'react-native'
-
-class ${1:ClassName} extends Component {
-$0
-	render () {
-		return (
-			<View>
-				<Text>${2}</Text>
-			</View>
-		)
-	}
-}
-
-export default $1
-endsnippet
-
-snippet rcsc "create stateless component" b
-${3:import React, {PropTypes} from 'react'}
-
-export default function ${1:ClassName} (${2:props}) {
-
-	return (
-		${4:<div>{'NewStatelessComponent'}</div>}
-	)
-
-}
-endsnippet
-
-snippet rncsc "create native stateless component" b
-import React, { PropTypes } from 'react'
-import { Text, View, ${3:StyleSheet} } from 'react-native'
-
-export default function ${1:ClassName} (props) {
-
-	return (
-		<View>
-			<Text>${2}</Text>
-		</View>
-	)
-
-}
-
-${3:const styles = StyleSheet.create({
-})}
 endsnippet
 
 snippet cs "create StyleSheet" b
@@ -172,6 +211,9 @@ const styles = StyleSheet.create({
 })
 endsnippet
 
+snippet cn "className"
+className="$1"
+endsnippet
 
 snippet render
 render () {
@@ -187,12 +229,6 @@ this.setState({
 })$0
 endsnippet
 
-snippet scu "should component update" i
-shouldComponentUpdate (nextProps, nextState) {
-	${1}
-}$0
-endsnippet
-
 snippet prp "get property" i
 this.props.${1}
 endsnippet
@@ -201,16 +237,8 @@ snippet st "get state" i
 this.state.${1}
 endsnippet
 
-snippet trp
-this.transferPropsTo(${VISUAL}$0)
-endsnippet
-
 snippet cl "log console" i
 console.log(${1})
-endsnippet
-
-snippet ra "redux action" i
-${0: }const ${1} = '$1'
 endsnippet
 
 snippet rr "redux reducer" i
@@ -225,7 +253,11 @@ export default function ${1} (state = initialState, action) {
 }
 endsnippet
 
-snippet rac "redux action creator" i
+snippet ra "redux action" i
+${0: }const ${1} = '$1'
+endsnippet
+
+snippet racv "redux action creator with variable" i
 export const $3 = '$3'
 export function ${1} (${2}) {
 	return {
@@ -234,7 +266,7 @@ export function ${1} (${2}) {
 }
 endsnippet
 
-snippet racs "redux action creator simple" i
+snippet rac "redux action creator" i
 export function ${1} (${2}) {
 	return {
 		type: ${3},$0
