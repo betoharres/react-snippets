@@ -49,14 +49,13 @@ endsnippet
 
 snippet rncc "create native class/component" b
 import React, { Component } from 'react'
-import { View, ${4} } from 'react-native'
+import { View${2}} from 'react-native'
 
 class ${1:`!v expand('%:t:r')`} extends Component {
 $0
 	render () {
 		return (
-			<View>
-			</View>
+			<View></View>
 		)
 	}
 }
@@ -106,19 +105,25 @@ snippet ex "export component" b
 export { default as ${1}${2} } from './$1/$1$2'
 endsnippet
 
-snippet f "create function" b
+snippet f "create function" i
 function ${1} (${2}) {
 	${3}
 }
 endsnippet
 
-snippet ef "create function" b
+snippet ef "export function" b
+export function ${1} (${2}) {
+	${3}
+}
+endsnippet
+
+snippet edf "export default function" b
 export default function ${1} (${2}) {
 	${3}
 }
 endsnippet
 
-snippet () "annon function" b
+snippet () "annon function" i
 () => ${1:{}}
 endsnippet
 
@@ -255,12 +260,12 @@ export default function ${1:`!v expand('%:t:r')`} (state = initialState, action)
 }
 endsnippet
 
-snippet rcs "redux case switch" i
+snippet rcs "redux case switch" b
 case $1 :
 	return { ...state, action.$2 }
 endsnippet
 
-snippet rce "redux case switch" i
+snippet rce "redux case switch" b
 case $1_ERROR :
 	return {
 	...state,
@@ -268,11 +273,11 @@ case $1_ERROR :
 	}
 endsnippet
 
-snippet ra "redux action" i
+snippet ra "redux action" b
 ${0: }const ${1} = '$1'
 endsnippet
 
-snippet racv "redux action creator with variable" i
+snippet racv "redux action creator with variable" b
 export const $3 = '$3'
 export function ${1} (${2}) {
 	return {
@@ -281,7 +286,7 @@ export function ${1} (${2}) {
 }
 endsnippet
 
-snippet rac "redux action creator" i
+snippet rac "redux action creator" b
 export function ${1} (${2}) {
 	return {
 		type: ${3},$0
