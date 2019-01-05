@@ -63,6 +63,39 @@ $0
 export default $1
 endsnippet
 
+snippet rrncc "create redux native class/component" b
+import React, { Component } from 'react'
+import { View${2}} from 'react-native'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
+import * as ${2}ActionCreators from '../../redux/modules/$2'
+
+class ${1:`!v expand('%:t:r')`} extends Component {
+	static propTypes = {
+		children: PropTypes.node,
+		dispatch: PropTypes.func.isRequired,
+	}
+
+	render () {
+		return (
+			<View>$0</View>
+		)
+	}
+}
+
+function mapStateToProps (state) {
+	return {}
+}
+
+function mapDispatchToProps (dispatch) {
+	return bindActionCreators($2ActionCreators, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)($1)
+endsnippet
+
+
 snippet rcsc "create stateless component" b
 import React from 'react'
 $4
