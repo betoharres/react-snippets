@@ -168,8 +168,8 @@ if (${1}){
 endsnippet
 
 snippet constructor "React constructor" b
-constructor () {
-	super()
+constructor (props) {
+	super(props)
 	this.state = {
 		${1}: ${2},
 	}
