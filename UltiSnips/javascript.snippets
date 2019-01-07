@@ -296,7 +296,7 @@ endsnippet
 
 snippet rcs "redux case switch" b
 case $1 :
-	return { ...state, action.$2 }
+	return { ...state, ...{$2: action.$2} }
 endsnippet
 
 snippet rce "redux case switch" b
