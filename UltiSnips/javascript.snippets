@@ -298,6 +298,18 @@ snippet cl "log console" i
 console.log(${1})
 endsnippet
 
+snippet co "const" i
+const $1 = $2
+endsnippet
+
+snippet le "let" i
+let $1 = $2
+endsnippet
+
+snippet db "debugger" b
+debugger
+endsnippet
+
 snippet rr "redux reducer" i
 const initialState = {}
 
@@ -318,7 +330,7 @@ endsnippet
 snippet rce "redux case switch" b
 case $1_ERROR :
 	return {
-	...state,
+		...state,
 		action.errors
 	}
 endsnippet
