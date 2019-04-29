@@ -261,23 +261,9 @@ shouldComponentUpdate (nextProps, nextState) {
 endsnippet
 
 snippet dp "default props" b
-defaultProps () {
-	return {
-		${1}
-	}
-}$0
-endsnippet
-
-snippet gis "get initial state" b
-getInitialState () {
-	return {
-		${1}: ${2}
-	}
-}$0
-endsnippet
-
-snippet ism "is mounted"
-isMounted()
+$1.defaultProps = {
+	$2: $3,
+}
 endsnippet
 
 snippet pt "propTypes" b
