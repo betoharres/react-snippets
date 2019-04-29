@@ -272,30 +272,12 @@ ${1}.propTypes = {
 }
 endsnippet
 
-snippet pt "propTypes" b
-static propTypes = {
-	${1}: PropTypes.${2:string}.isRequired,
-}
-endsnippet
-
 snippet cs "create StyleSheet" b
 const styles = StyleSheet.create({
 	${1}: {
 		${2}: ${3},
 	},
 })
-endsnippet
-
-snippet cn "className"
-className="$1"
-endsnippet
-
-snippet render
-render () {
-	return (
-		${1:<div></div>}
-	)
-}$0
 endsnippet
 
 snippet tss "set state" b
@@ -362,14 +344,3 @@ export function ${1} (${2}) {
 }
 endsnippet
 
-snippet co "const" i
-const $1 = $2
-endsnippet
-
-snippet le "let" i
-let $1 = $2
-endsnippet
-
-snippet db "debugger" b
-debugger
-endsnippet
