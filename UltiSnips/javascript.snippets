@@ -179,6 +179,10 @@ snippet imm "import with brackets" b
 import { $1 } from '${2}'
 endsnippet
 
+snippet imrn "import react native components" b
+import { View, Text${3:, TouchableOpacity} } from 'react-native'
+endsnippet
+
 snippet ex "export component" b
 export { default as ${1}${2} } from './$1/$1$2'
 endsnippet
