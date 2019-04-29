@@ -1,6 +1,50 @@
 #
 #  React snippets
 #
+
+snippet rh "React Hooks Function" b
+import React, { useState${2:, useEffect} } from 'react'
+import PropTypes from 'prop-types'
+
+function ${1:`!v expand('%:t:r')`} (${3:props}) {
+	return (
+		${4:null}
+	)
+}
+
+$1.propTypes = {
+}
+
+export default $1
+endsnippet
+
+snippet rnh "React Native Hooks Function" b
+import React, { useState${2:, useEffect} } from 'react'
+import { View, Text${3:, TouchableOpacity} } from 'react-native'
+import PropTypes from 'prop-types'
+
+function ${1:`!v expand('%:t:r')`} (${4:props}) {
+	return (
+		<View>
+			${5:null}
+		</View>
+	)
+}
+
+$1.propTypes = {
+}
+export default $1
+endsnippet
+
+snippet ue "React useEffect" b
+useEffect(() => {
+}, ${1:[]})
+endsnippet
+
+snippet us "React useEffect" b
+const [$1, set$2] = useState($3)
+endsnippet
+
 snippet rrcc "React Redux Class Component" b
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
