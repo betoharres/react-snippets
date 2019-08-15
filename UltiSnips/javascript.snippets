@@ -4,10 +4,10 @@
 
 snippet rsc "React Hooks Function" b
 import React from 'react'
-import { string } from 'prop-types'
+import { string, $5 } from 'prop-types'
 import { Container, $4 } from './$1.styles'
 
-export default function ${1:`!v expand('%:t:r')`}(${3:props}) {
+export default function ${1:`!v expand('%:t:r')`}({$3}) {
 	return (
 		<Container>
 			$4
@@ -16,7 +16,6 @@ export default function ${1:`!v expand('%:t:r')`}(${3:props}) {
 }
 
 $1.propTypes = {
-	$3,
 }
 endsnippet
 
@@ -25,7 +24,7 @@ useEffect(() => {
 }, ${1:[]})
 endsnippet
 
-snippet immr "Import hooks" b
+snippet immh "Import hooks" b
 import React, { useState${2:, useEffect} } from 'react'
 endsnippet
 
