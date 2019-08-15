@@ -2,44 +2,31 @@
 #  React snippets
 #
 
-snippet rh "React Hooks Function" b
-import React, { useState${2:, useEffect} } from 'react'
-import PropTypes from 'prop-types'
+snippet rsc "React Hooks Function" b
+import React from 'react'
+import { string } from 'prop-types'
+import { Container, $4 } from './$1.styles'
 
-function ${1:`!v expand('%:t:r')`} (${3:props}) {
+export default function ${1:`!v expand('%:t:r')`}(${3:props}) {
 	return (
-		${4:null}
+		<Container>
+			$4
+		</Container>
 	)
 }
 
 $1.propTypes = {
+	$3,
 }
-
-export default $1
-endsnippet
-
-snippet rnh "React Native Hooks Function" b
-import React, { useState${2:, useEffect} } from 'react'
-import { View, Text${3:, TouchableOpacity} } from 'react-native'
-import PropTypes from 'prop-types'
-
-function ${1:`!v expand('%:t:r')`} (${4:props}) {
-	return (
-		<View>
-			${5:null}
-		</View>
-	)
-}
-
-$1.propTypes = {
-}
-
-export default $1
 endsnippet
 
 snippet ue "React useEffect" b
 useEffect(() => {
 }, ${1:[]})
+endsnippet
+
+snippet immr "Import hooks" b
+import React, { useState${2:, useEffect} } from 'react'
 endsnippet
 
 snippet us "React useEffect" b
@@ -77,37 +64,6 @@ function mapDispatchToProps (dispatch) {
 export default connect(mapStateToProps, mapDispatchToProps)($1)
 endsnippet
 
-snippet rcc "create class/component" b
-import React, { Component } from 'react'
-
-class ${1:`!v expand('%:t:r')`} extends Component {
-
-	render () {
-		return (
-			${2:null}
-		)
-	}
-}
-$0
-export default $1
-endsnippet
-
-snippet rncc "create native class/component" b
-import React, { Component } from 'react'
-import { View${2}} from 'react-native'
-
-class ${1:`!v expand('%:t:r')`} extends Component {
-$0
-	render () {
-		return (
-			<View></View>
-		)
-	}
-}
-
-export default $1
-endsnippet
-
 snippet rrncc "create redux native class/component" b
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
@@ -118,7 +74,6 @@ import { bindActionCreators } from 'redux'
 import * as ${2}ActionCreators from '../../redux/modules/$2'
 
 class ${1:`!v expand('%:t:r')`} extends Component {
-
 	static propTypes = {
 		children: PropTypes.node,
 	}
@@ -142,30 +97,16 @@ export default connect(mapStateToProps, mapDispatchToProps)($1)
 endsnippet
 
 
-snippet rcsc "create stateless component" b
-import React from 'react'
-$4
-export default function ${1:`!v expand('%:t:r')`} (${2:props}) {
-
-	return (
-		${3}
-	)
-
-}
-endsnippet
-
 snippet rncsc "create native stateless component" b
 import React from 'react'
 import { View, Text, ${3:StyleSheet} } from 'react-native'
 
-export default function ${1:`!v expand('%:t:r')`} (props) {
-
+export default function ${1:`!v expand('%:t:r')`}(props) {
 	return (
 		<View>
 			<Text>${2}</Text>
 		</View>
 	)
-
 }
 
 ${3:const styles = StyleSheet.create({
@@ -189,19 +130,19 @@ export { default as ${1}${2} } from './$1/$1$2'
 endsnippet
 
 snippet fu "create function" i
-function ${1} (${2}) {
+function ${1}(${2}) {
 	${3}
 }
 endsnippet
 
 snippet ef "export function" b
-export function ${1} (${2}) {
+export function ${1}(${2}) {
 	${3}
 }
 endsnippet
 
 snippet edf "export default function" b
-export default function ${1} (${2}) {
+export default function ${1}(${2}) {
 	${3}
 }
 endsnippet
@@ -216,51 +157,6 @@ if (${1}){
 }
 endsnippet
 
-snippet constructor "React constructor" b
-constructor (props) {
-	super(props)
-	this.state = {
-		${1}: ${2},
-	}
-}$0
-endsnippet
-
-snippet cdm "component did mount" b
-componentDidMount () {
-	${1}
-}$0
-endsnippet
-
-snippet cdu "component did update" b
-componentDidUpdate (prevProps, prevState) {
-	${1}
-},$0
-endsnippet
-
-snippet cwrp "component will receive props" b
-componentWillReceiveProps (nextProps) {
-	${1}
-}$0
-endsnippet
-
-snippet cwun "component will unmount" b
-componentWillUnmount () {
-	${1}
-}$0
-endsnippet
-
-snippet cwup "component will update" b
-componentWillUpdate (nextProps, nextState) {
-	${1}
-}$0
-endsnippet
-
-snippet scu "should component update" i
-shouldComponentUpdate (nextProps, nextState) {
-	${1}
-}$0
-endsnippet
-
 snippet dp "default props" b
 $1.defaultProps = {
 	$2: $3,
@@ -269,12 +165,12 @@ endsnippet
 
 snippet pt "propTypes" b
 ${1}.propTypes = {
-	${2}: PropTypes.${3:string}.isRequired,
+	${2}: ${3:string}.isRequired,
 }
 endsnippet
 
 snippet ptp "propType partial" b
-	${1}: PropTypes.${2:string}${3:.isRequired},
+	${1}: ${2:string}${3:.isRequired},
 endsnippet
 
 snippet cs "create StyleSheet" b
@@ -283,20 +179,6 @@ const styles = StyleSheet.create({
 		${2}: ${3},
 	},
 })
-endsnippet
-
-snippet tss "set state" b
-this.setState({
-	${1}: ${2}
-})$0
-endsnippet
-
-snippet prp "get property" i
-this.props.${1}
-endsnippet
-
-snippet st "get state" i
-this.state.${1}
 endsnippet
 
 snippet cl "log console" i
