@@ -29,9 +29,9 @@ import { RNETheme, stackNavigationDecorator } from '~/storybook/decorators'
 import { mockProps } from './$1.mock'
 
 storiesOf('$1', module)
-	.addDecorator(withKnobs)
-	.addDecorator(RNETheme)
 	.addDecorator(stackNavigationDecorator)
+	.addDecorator(RNETheme)
+	.addDecorator(withKnobs)
 	.add('default', () => <$1 {...mockProps} />)
 endsnippet
 
@@ -52,7 +52,7 @@ snippet rnsciov "React Native styled component(iOv project)" b
 import styled from 'styled-components/native'
 import theme from '~/app/styles'
 
-export const Container = styled.View``
+export const Container = styled.View\`\`
 endsnippet
 
 snippet rnmockiov "React Native mock (iOv project)" b
