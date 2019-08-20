@@ -19,6 +19,54 @@ $1.propTypes = {
 }
 endsnippet
 
+snippet rnsiov "React Native Create Story(iOv project)" b
+import React from 'react'
+import ${1:`!v expand('%:t:r')`} from './$1'
+import { storiesOf } from '@storybook/react-native'
+import { withKnobs } from '@storybook/addon-knobs'
+
+import { RNETheme, stackNavigationDecorator } from '~/storybook/decorators'
+import { mockProps } from './$1.mock'
+
+storiesOf('$1', module)
+	.addDecorator(withKnobs)
+	.addDecorator(RNETheme)
+	.addDecorator(stackNavigationDecorator)
+	.add('default', () => <$1 {...mockProps} />)
+endsnippet
+
+snippet rnspciov "React Native Spec file (iOv project)" b
+import React from 'react'
+import ${1:`!v expand('%:t:r')`} from './$1'
+import mockProps from './$1.mock'
+
+import { render } from '~/jest'
+
+it('renders correctly', () => {
+	const wrapper = render(<$1 {...mockProps} />)
+	expect(wrapper.toJSON()).toMatchSnapshot()
+})
+endsnippet
+
+snippet rnsciov "React Native styled component(iOv project)" b
+import styled from 'styled-components/native'
+import theme from '~/app/styles'
+
+export const Container = styled.View``
+endsnippet
+
+snippet rnmockiov "React Native mock (iOv project)" b
+import React from 'react'
+import { Back${1:, Close} } from '~/app/components/base'
+
+export const mockProps = {
+	headerTitle: '$2',
+	headerLeft: <Back />,
+	${1:headerRight: <Close />,}
+	placeName: 'Dunedin Bush Camp and Lodge Long Name',
+}
+endsnippet
+
 snippet ue "React useEffect" b
 useEffect(() => {
 }, ${1:[]})
