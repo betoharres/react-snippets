@@ -38,7 +38,7 @@ endsnippet
 snippet rnspciov "React Native Spec file (iOv project)" b
 import React from 'react'
 import ${1:`!v expand('%:t:r')`} from './$1'
-import mockProps from './$1.mock'
+import { mockProps } from './$1.mock'
 
 import { render } from '~/jest'
 
@@ -168,10 +168,6 @@ snippet imm "import with brackets" b
 import { $1 } from '${2}'
 endsnippet
 
-snippet imrn "import react native components" b
-import { View, Text${3:, TouchableOpacity} } from 'react-native'
-endsnippet
-
 snippet ex "export component" b
 export { default as ${1}${2} } from './$1/$1$2'
 endsnippet
@@ -199,7 +195,7 @@ snippet () "annon function" i
 endsnippet
 
 snippet if "if statement"
-if (${1}){
+if(${1}){
 	${2}
 }
 endsnippet
