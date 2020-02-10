@@ -69,7 +69,7 @@ endsnippet
 
 snippet ue "React useEffect" b
 useEffect(() => {
-}, ${1:[]})
+}, $1)
 endsnippet
 
 snippet immh "Import hooks" b
@@ -85,7 +85,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as ${2}ActionCreators from '../../redux/modules/$2'
+import * as $2ActionCreators from '../../redux/modules/$2'
 
 class ${1:`!v expand('%:t:r')`} extends Component {
 	static propTypes = {
@@ -118,7 +118,7 @@ import { View } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
-import * as ${2}ActionCreators from '../../redux/modules/$2'
+import * as $2ActionCreators from '../../redux/modules/$2'
 
 class ${1:`!v expand('%:t:r')`} extends Component {
 	static propTypes = {
@@ -151,7 +151,7 @@ import { View, Text, ${3:StyleSheet} } from 'react-native'
 export default function ${1:`!v expand('%:t:r')`}(props) {
 	return (
 		<View>
-			<Text>${2}</Text>
+			<Text>$2</Text>
 		</View>
 	)
 }
@@ -161,11 +161,11 @@ ${3:const styles = StyleSheet.create({
 endsnippet
 
 snippet im "import" b
-import $1 from '${2}'
+import $1 from '$2'
 endsnippet
 
 snippet imm "import with brackets" b
-import { $1 } from '${2}'
+import { $1 } from '$2'
 endsnippet
 
 snippet imrn "import react native components" b
@@ -173,23 +173,23 @@ import { View, Text${3:, TouchableOpacity} } from 'react-native'
 endsnippet
 
 snippet ex "export component" b
-export { default as ${1}${2} } from './$1/$1$2'
+export { default as $1$2 } from './$1/$1$2'
 endsnippet
 
 snippet fu "create function" i
-function ${1}(${2}) {
-	${3}
+function $1($2) {
+	$3
 }
 endsnippet
 
 snippet ef "export function" b
-export function ${1}(${2}) {
-	${3}
+export function $1($2) {
+	$3
 }
 endsnippet
 
 snippet edf "export default function" b
-export default function ${1}(${2}) {
+export default function $1($2) {
 	${3}
 }
 endsnippet
@@ -199,8 +199,8 @@ snippet () "annon function" i
 endsnippet
 
 snippet if "if statement"
-if (${1}){
-	${2}
+if ($1){
+	$2
 }
 endsnippet
 
@@ -211,25 +211,29 @@ $1.defaultProps = {
 endsnippet
 
 snippet pt "propTypes" b
-${1}.propTypes = {
-	${2}: ${3:string}.isRequired,
+$1.propTypes = {
+	$2: ${3:string}.isRequired,
 }
 endsnippet
 
 snippet ptp "propType partial" b
-	${1}: ${2:string}${3:.isRequired},
+	$1: ${2:string}${3:.isRequired},
 endsnippet
 
 snippet cs "create StyleSheet" b
 const styles = StyleSheet.create({
-	${1}: {
-		${2}: ${3},
+	$1: {
+		$2: $3,
 	},
 })
 endsnippet
 
 snippet cl "log console" i
-console.log(${1})
+console.log($1)
+endsnippet
+
+snippet ce "log error console" i
+console.error($1)
 endsnippet
 
 snippet co "const" i
@@ -269,15 +273,11 @@ case $1_ERROR :
 	}
 endsnippet
 
-snippet ra "redux action" b
-${0: }const ${1} = '$1'
-endsnippet
-
 snippet racc "redux action creator with constant" b
 export const $3 = '$3'
-export function ${1} (${2}) {
+export function $1 ($2) {
 	return {
-		type: ${3},$0
+		type: $3,$0
 	}
 }
 endsnippet
@@ -290,3 +290,10 @@ export function ${1} (${2}) {
 }
 endsnippet
 
+snippet try "try/catch block" b
+try {
+
+} catch (error) {
+	console.error(error)
+}
+endsnippet
